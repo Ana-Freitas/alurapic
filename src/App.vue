@@ -1,13 +1,6 @@
 <template>
   <div class="corpo">
-    <nav>
-      <ul>       
-          <li v-for="router in routes" :key="router.path">
-              <router-link :to="router.path ? router.path : '/'"> {{ router.titulo}}</router-link>
-          </li>
-      </ul>
-    </nav>
-
+    <meu-menu :rotas="routes"/>
     <transition name="pagina-fade">
       <router-view></router-view>
     </transition>
@@ -15,10 +8,15 @@
 </template>
 
 <script>
-
 import {routes} from './routes';
+import Menu from './components/shared/menu/Menu.vue';
 
 export default{
+
+  components: {
+    'meu-menu': Menu
+  }, 
+
   data(){
     return {
       routes
