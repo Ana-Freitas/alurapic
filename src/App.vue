@@ -16,17 +16,14 @@ export default{
   data() {
     return {
       title: 'AluraPic',
-      fotos: [
-        {
-          url:"https://media.gazetadopovo.com.br/viver-bem/2018/11/dog3-768x587-0e01be20.jpg",
-          titulo: "cachorro"
-        },
-        {
-          url:"https://blackwhitepet.com.br/resources/img/racas-de-cachorro-pastor-alemao.jpg",
-          titulo: "Pastor Alemao"
-        }
-      ]
+      fotos: []
     }
+  },
+
+  created() {
+    let promise = this.$http.get("http://localhost:3000/v1/fotos")
+    .then(res => res.json())
+    .then(fotos => this.fotos = fotos, error => console.log(error));
   }
 }
 </script>
