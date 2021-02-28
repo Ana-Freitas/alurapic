@@ -2,23 +2,23 @@
 
   <div>
     <h1 class="centralizado">Cadastro</h1>
-    <h2 class="centralizado"> {{foto.titulo}}</h2>
+    <h2 class="centralizado"> {{foto.titulo}} </h2>
 
     <form @submit.prevent="gravar()">
       <div class="controle">
         <label for="titulo">TÍTULO</label>
-        <input @input="foto.titulo = $event.target.value" id="titulo" autocomplete="off">
+        <input @input="foto.titulo = $event.target.value" :value="foto.titulo" id="titulo" autocomplete="off">
       </div>
 
       <div class="controle">
         <label for="url">URL</label>
-        <input @input="foto.url = $event.target.value" id="url" autocomplete="off">
-        <imagem-responsiva :url="foto.url"/>
+        <input @input="foto.url = $event.target.value" id="url" autocomplete="off" :value="foto.url">
+        <imagem-responsiva :titulo="foto.titulo" :url="foto.url"/>
       </div>
 
       <div class="controle">
         <label for="descricao">DESCRIÇÃO</label>
-        <textarea @input="foto.descricao= $event.target.value" id="descricao" autocomplete="off"></textarea>
+        <textarea @input="foto.descricao= $event.target.value" id="descricao" autocomplete="off" :value="foto.descricao"></textarea>
       </div>
 
       <div class="centralizado">
@@ -54,8 +54,17 @@ export default {
   methods: {
       gravar(){
           console.log('ENVIAR DADOS PARA A API');
+          this.limpar();
       },
 
+      limpar(){
+
+          this.foto = {
+              titulo: '',
+              url: '',
+              descricao: ''
+          }
+      }
   }
 
 }
