@@ -31,7 +31,7 @@
 </template>
 
  <script>
- 
+
 import ImagemResponsiva from '../shared/imagem-responsiva/ImagemResponsiva.vue'
 import Botao from '../shared/botao/Botao.vue';
 import Foto from '../../domain/foto/Foto';
@@ -51,8 +51,8 @@ export default {
 
   methods: {
       gravar(){
-          console.log('ENVIAR DADOS PARA A API');
-          this.limpar();
+          this.$http.post('http://localhost:3000/v1/fotos', this.foto)
+          .then(() => this.limpar(), err=> console.log(err));
       },
 
       limpar(){
