@@ -9,8 +9,12 @@
       <li  class="lista-fotos-item" v-for="foto of fotosComFiltro" :key="foto.titulo">
           <meu-painel :titulo="foto.titulo">
             <imagem-responsiva :url="foto.url" :titulo="foto.titulo"/>
-            <meu-botao tipo="button" rotulo="REMOVER" @click.native="remove()"/>
-
+            <meu-botao 
+            tipo="button" 
+            rotulo="REMOVER" 
+            :confirmacao="true"
+            estilo="perigo"
+            @botaoAtivado="remove($event, foto)"/>
           </meu-painel>
       </li>
     </ul>
@@ -50,8 +54,9 @@ export default{
   },
 
   methods: {
-    remove(){
-      alert('Remove the photo');
+    remove($event, foto){
+     // alert($event); // passa dados do componente para o pai
+      alert('Remove the photo: ' + foto.titulo);
     }
   },
 
