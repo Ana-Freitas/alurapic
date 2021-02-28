@@ -2,6 +2,7 @@
 
   <div>
     <h1 class="centralizado">{{title}}</h1>
+    <p v-show="mensagem" class="centralizado"> {{ mensagem }}</p>
     <input type="search" class="filtro" @input="filtro = $event.target.value" placeholder="filtre por parte do título">
 
     {{filtro}}
@@ -14,7 +15,7 @@
             rotulo="REMOVER" 
             :confirmacao="true"
             estilo="perigo"
-            @botaoAtivado="remove($event, foto)"/>
+            @botaoAtivado="remover($event, foto)"/>
           </meu-painel>
       </li>
     </ul>
@@ -43,7 +44,8 @@ export default{
     return {
       title: 'AluraPic',
       fotos: [],
-      filtro: ''
+      filtro: '',
+      mensagem: ''
     }
   },
 
@@ -59,9 +61,13 @@ export default{
   },
 
   methods: {
-    remove($event, foto){
+    remover($event, foto){
      // alert($event); // passa dados do componente para o pai
-      alert('Remove the photo: ' + foto.titulo);
+       this.$http.delete(`http://localhost:3000/v1/fotos/${foto._id}`)
+       .then(() => this.mensagem = 'Foto removida com sucesso', err => {
+         console.log(err);
+         this.mensagem =  'Não foi possível remover a foto'
+       });
     }
   },
 
