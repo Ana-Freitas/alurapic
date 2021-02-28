@@ -7,7 +7,7 @@
     {{filtro}}
     <ul class="lista-fotos"> 
       <li  class="lista-fotos-item" v-for="foto of fotosComFiltro" :key="foto.titulo">
-          <meu-painel v-meu-transform="{increment:0, animate: false}" :titulo="foto.titulo">
+          <meu-painel v-meu-transform.animate.reverse="15" :titulo="foto.titulo">
             <imagem-responsiva  :url="foto.url" :titulo="foto.titulo"/>
             <meu-botao 
             tipo="button" 
