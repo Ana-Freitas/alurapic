@@ -4,7 +4,8 @@
 
  <script>
  export default {
-     props: {
+     props:
+      {
          url: {
              type: String,
              required: true
@@ -12,7 +13,7 @@
 
          titulo: {
              type: String,
-             required: true
+             required: false
          }
      }
  }
