@@ -3,7 +3,7 @@
   <div class="corpo">
     <h1 class="centralizado">{{title}}</h1>
     <ul class="lista-fotos"> 
-      <li  class="lista-fotos-item" v-for="foto of fotos">
+      <li  class="lista-fotos-item" v-for="foto of fotos" :key="foto.url">
           <meu-painel :titulo="foto.titulo">
             <img class="imagem-responsiva" :src="foto.url" :alt="foto.titulo">
           </meu-painel>
@@ -16,7 +16,7 @@
 import Painel from './components/shared/painel/Painel.vue';
 
 export default{
-  
+
   components: {
   'meu-painel': Painel
   },
@@ -29,7 +29,7 @@ export default{
   },
 
   created() {
-    let promise = this.$http.get("http://localhost:3000/v1/fotos")
+    this.$http.get("http://localhost:3000/v1/fotos")
     .then(res => res.json())
     .then(fotos => this.fotos = fotos, error => console.log(error));
   }

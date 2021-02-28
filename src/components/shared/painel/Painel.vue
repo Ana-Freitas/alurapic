@@ -1,7 +1,7 @@
 <template>
     <div class="painel">
         <h2 class="painel-titulo"> {{ titulo }}</h2>
-        <div class="painel-conteudo"></div>
+        <slot class="painel-conteudo"></slot>
     </div>
 </template>
 
@@ -12,8 +12,11 @@ export default{
 }
 </script>
 
-<style>
+<style scoped>
  /* estilo do painel */ 
+   * {
+      box-shadow: 5px, 5px, 5px;
+    }
 
    .painel {
     padding: 0 auto;
