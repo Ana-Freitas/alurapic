@@ -4,8 +4,28 @@
 
 <script>
 export default {
-    props: ['tipo', 'rotulo', 'confirmacao', 'estilo'],
+    props: {
+        tipo: {
+            type: String,
+            required: true,
+        },
 
+        rotulo: {
+            type: String,
+            required: true
+        },
+
+        confirmacao: {
+            type: Boolean,
+            required: false
+        },
+
+        estilo: {
+            type: String,
+            required: false
+        }
+    },
+    
     methods: {
         disparaAcao(){
             if(this.confirmacao){
