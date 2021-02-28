@@ -12,7 +12,7 @@
 
       <div class="controle">
         <label for="url">URL</label>
-        <input  id="url" autocomplete="off" v-model="foto.url">
+        <input  id="url" autocomplete="off" v-model.lazy="foto.url">
         <imagem-responsiva :url="foto.url"/>
       </div>
 
