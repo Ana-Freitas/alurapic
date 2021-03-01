@@ -11,6 +11,9 @@ export default class FotoService{
     }
 
     cadastrar(foto){
+        if(foto._id){
+            return this._resource.update({id: foto._id}, foto);
+        }
         return this._resource.save(foto)
     }
 
