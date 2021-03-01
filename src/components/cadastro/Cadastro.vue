@@ -51,13 +51,17 @@ export default {
 
   methods: {
       gravar(){
-          this.$http.post('v1/fotos', this.foto)
+          this.resource.save(this.foto)
           .then(() => this.limpar(), err=> console.log(err));
       },
 
       limpar(){
           this.foto = new Foto;
       }
+  },
+  
+  created()  {
+      this.resource = this.$resource('v1/fotos');
   }
 
 }
