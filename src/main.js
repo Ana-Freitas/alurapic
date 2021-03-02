@@ -6,6 +6,7 @@ import VueRouter from 'vue-router';
 import { routes } from './routes';
 import './directives/Transform';
 import VeeValidate from 'vee-validate';
+import msg from './pt_BR';
 
 
 Vue.use(VueResource);
@@ -17,7 +18,14 @@ const router = new VueRouter({
   routes,
   mode: 'history'}) //ou routes: routes, como é o mesmo nome, podemos deixar implicito
 
-Vue.use(VeeValidate);
+Vue.use(VeeValidate, {
+  locale: 'pt_BR',
+  dictionary: {
+    pt_BR: {
+      messages: msg
+    }
+  }
+});
 
 new Vue({
   el: '#app',
