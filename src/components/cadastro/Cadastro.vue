@@ -10,12 +10,14 @@
     <form @submit.prevent="gravar()">
       <div class="controle">
         <label for="titulo">TÍTULO</label>
-        <input id="titulo" autocomplete="off" v-model.lazy="foto.titulo">
+        <input name="titulo" data-vv-as="título" v-validate data-vv-rules="required|min:3|max:30" id="titulo" autocomplete="off" v-model="foto.titulo">
+        <span class="erro" v-show="errors.has('titulo')">{{ errors.first('titulo') }}</span>
       </div>
 
       <div class="controle">
         <label for="url">URL</label>
-        <input  id="url" autocomplete="off" v-model.lazy="foto.url">
+        <input name="url" v-validate data-vv-rules="required" id="url" autocomplete="off" v-model="foto.url">
+        <span class="erro" v-show="errors.has('url')">{{ errors.first('url') }}</span>
         <imagem-responsiva v-show="foto.url" :url="foto.url" :titulo="foto.titulo"/>
       </div>
 
@@ -55,7 +57,11 @@ export default {
   }, 
 
   methods: {
-      gravar(){
+    gravar(){
+      this.$validator
+      .validateAll()
+      .then( sucess => {
+        if(sucess){
           this.service.cadastrar(this.foto)
           .then(() => {
             if(this.foto._id) 
@@ -63,8 +69,11 @@ export default {
 
             this.limpar()
             }
-            , err=> console.log(err));
-      },
+            , err=> console.log(err));  
+        }
+      });
+
+    },
 
       limpar(){
           this.foto = new Foto;
@@ -101,5 +110,9 @@ export default {
         width: 100%;
         font-size: inherit;
         border-radius: 5px;
+    }
+
+    .erro {
+      color: red;
     }
  </style>
