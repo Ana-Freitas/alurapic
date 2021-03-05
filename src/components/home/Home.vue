@@ -1,6 +1,7 @@
 <template>
 
   <div>
+    <img class="image" src="/static/lion.jpg"/>
     <h1 class="centralizado">{{title}}</h1>
     <p v-show="mensagem" class="centralizado"> {{ mensagem }}</p>
     <input type="search" class="filtro" @input="filtro = $event.target.value" placeholder="filtre por parte do título">
@@ -100,5 +101,13 @@ export default{
   .filtro {
     display: block;
     width: 100%;
+  }
+
+  .image {
+    width: 60%;
+    float:none;
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
   }
 </style>
