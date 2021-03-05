@@ -50,7 +50,10 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+    $corPerigo: firebrick;
+    $corDarkCyan: darkcyan;
+
     .botao{
         display: inline-block;
         padding: 10px;
@@ -60,12 +63,12 @@ export default {
     }
 
     .botao-perigo{
-        background: firebrick;
+        background: $corPerigo;
         color: white;
     }
 
     .botao-padrao {
-        background: darkcyan;
+        background: $corDarkCyan;
         color: white;
     }
 </style>
