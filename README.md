@@ -3,7 +3,6 @@
 > É um projeto básico apenas para aprendizado sobre as principais funcionalidade e conceitos do Vue.js. Esse projeto consiste em uma SPA (Single Page Application), em que realizamos um CRUD de imagens, uma galeria básica. Abaixo estão os conceitos e funcionalidades abordados no curso.
 
 ## Infraestrutura
--------------
 * Node.js (6.x) que pode ser baixado em: https://nodejs.org/
   * A utilizada nesse projeto foi  6.17.1. Para ver a versão em seu terminal execute `node -v`
 * Editor de Código
