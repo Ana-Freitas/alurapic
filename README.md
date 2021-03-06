@@ -10,7 +10,7 @@
 
 ## Clonando e Executando Projeto
   
-* Copie a url do repositório e no seu terminal execute `git clone 'enderecoGitHub/projeto'`
+* Copie a url do repositório e no seu terminal execute `git clone https://github.com/Ana-Freitas/alurapic.git`
 * Ainda no terminal, dentro da pasta do projeto, rode `npm install` para instalar as dependencias. Esse comando irá gerar a pasta node_modules
     * Execute também esse comando dentro da pasta da api e do server (este não é obrigatório). Se quiser pode isolar eles em outro diretório, pois ambos são projetos à parte, fornecido pelo Alura porém também foram utilizado no AluraPic.
 * Para executar o projeto, dentro da pasta da api, execute no terminal `npm start` e dentro do projeto execute `npm run dev`. Abrirá em localhost:8080, caso a porta não esteja ocupada.
