@@ -1,6 +1,6 @@
 # Project AluraPic
 
-> A Vue.js project
+> É um projeto básico apenas para aprendizado sobre as principais funcionalidade e conceitos do Vue.js. Esse projeto consiste em uma SPA (Single Page Application), em que realizamos um CRUD de imagens, uma galeria básica. Abaixo estão os conceitos e funcionalidades abordados no curso.
 
 ## Infraestrutura
 -------------
